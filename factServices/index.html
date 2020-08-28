@@ -1,0 +1,31 @@
+<html lang="eng" >
+  <head>
+    <title>Angular t</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+  <body ng-app="firstAngularApp">
+    <div class="" ng-controller="mainCtrl as vm">
+      <h2> list of Posts </h2>
+      <p>Search By Value: <input type="text" name="" value="" ng-model="vm.search">
+      <ul>
+        <li ng-repeat="post in vm.posts|filter:vm.search">
+            Title: {{post.title}} <br>
+            Body: {{post.body}}
+        </li>
+      </ul>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.js"></script>
+    <script src="/app.js"></script>
+  </body>
+
+
+
+
+
+
+</html>
