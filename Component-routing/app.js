@@ -12,25 +12,6 @@ app.config(function($stateProvider,$urlRouterProvider){
       url:'/posts',
       template:'<posts-list></posts-list>'
     })
-    .state('posts.incomplete',{
-      url:'/incomplete',
-      template:'<posts-list posts=vm.incompletePosts></posts-list>',
-      controlerAs:'vm'
-    })
-    .state('posts.complete',{
-      url:'/complete',
-      template:'<posts-list posts=vm.completePosts></posts-list>',
-      controllerAs:'vm'
-    })
-})
-
-app.controller('mainCtrl', function(mainSvc,mainFact){
-  var vm = this;
-  mainSvc.getPosts()
-  .then(response=>{
-    this.incompletePosts = response.data.splice(0,50)
-    this.completePosts = response.data
-  })
 })
 
 app.filter('makePlural', function(){
