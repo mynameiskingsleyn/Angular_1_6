@@ -1,6 +1,25 @@
-<ul>
-  <li ng-repeat="post in vm.posts|filter:vm.search">
-      Title: {{post.title}} <br>
-      Body: {{post.body}}
-  </li>
-</ul>
+<select  ng-init="options=['title','body']" ng-model="vm.selectedOption">
+  <option ng-repeat="option in options" value="{{option}}"
+  selected="option == vm.selectedOption"
+  >{{option|uppercase}}</option>
+</select>
+<p>Search item: </p>
+<input type="text" ng-model="vm.search">
+<p>{{vm.keyd}}</p>
+<p>{{vm.ps}}</p>
+<div ng-if="keyd == incomplete">
+  <ul>
+    <li ng-repeat="post in vm.incompletePosts|objFilter:vm.search:vm.selectedOption">
+        Title: {{post.title}} <br>
+        Body: {{post.body}}
+    </li>
+  </ul>
+</div>
+<div ng-else>
+  <ul>
+    <li ng-repeat="post in vm.completePosts|objFilter:vm.search:vm.selectedOption">
+        Title: {{post.title}} <br>
+        Body: {{post.body}}
+    </li>
+  </ul>
+</div>

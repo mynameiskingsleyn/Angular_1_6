@@ -1,19 +1,21 @@
 function PostsListController(mainSvc){
-  // var vm = this;
-  // const num = 50;
-  // mainSvc.getPosts()
-  // .then(function(response){
-  //     vm.incompletePosts = response.data.splice(0,num)
-  //     vm.completePosts = response.data
-  //     //vm.posts = response.data;
-  // })
+  var vm = this;
+  const num = 50;
+  this.selectedOption="title";
+  this.search="";
+  mainSvc.getPosts()
+  .then((response)=>{
+       this.incompletePosts = response.data.splice(0,num)
+       this.completePosts = response.data
+       //this.posts = response.data;
+  });
 }
 
 app.component('postsList',{
   templateUrl: 'posts-list/posts-list.html',
   controller: PostsListController,
   controllerAs: 'vm', // defaults to $ctrl
-  bindings:{
-    posts:'<' // <= one way binding, = => two-way-binding
+  bindings:{ // <= one way binding, = => two-way-binding
+    keyd: '@'
   }
 })
